@@ -1,0 +1,21 @@
+package com.vasudev.jobtracker.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class DashboardAnalyticsResponse {
+
+    private List<MonthlyApplicationResponse> monthlyApplications;
+
+    private List<StatusAnalyticsResponse> statusAnalytics;
+
+    private List<CompanyAnalyticsResponse> topCompanies;
+
+    private List<RoleAnalyticsResponse> topJobRoles;
+}

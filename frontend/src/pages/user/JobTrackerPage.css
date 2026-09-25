@@ -1,0 +1,1244 @@
+/* ===================================================================
+   JOBTRACKER APPLICATIONS PAGE — MODERN SAAS DESIGN SYSTEM
+   =================================================================== */
+
+/* Page Wrapper */
+.jt-apps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  animation: fadeIn 200ms ease-out;
+}
+
+/* -------------------------------------------------------------------
+   1. PAGE HEADER
+   ------------------------------------------------------------------- */
+.jt-apps-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.jt-apps-header-left h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-heading, #090D16);
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+}
+
+.jt-apps-header-left p {
+  font-size: 14px;
+  color: var(--text-muted, #64748B);
+  margin-top: 4px;
+}
+
+.jt-apps-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.jt-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.jt-add-btn:hover {
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+}
+
+.jt-add-btn:active {
+  transform: translateY(0);
+}
+
+/* -------------------------------------------------------------------
+   2. METRICS SUMMARY CARDS
+   ------------------------------------------------------------------- */
+.jt-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.jt-summary-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 8px -2px rgba(15, 23, 42, 0.02);
+  transition: all 180ms ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.jt-summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px rgba(15, 23, 42, 0.08);
+  border-color: #CBD5E1;
+}
+
+.jt-summary-card.active-filter {
+  border-color: #6366F1;
+  background: #F8FAFC;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.jt-summary-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.jt-summary-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.jt-summary-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+}
+
+.jt-summary-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.jt-summary-icon.total {
+  background: #EEF2FF;
+  color: #4F46E5;
+}
+
+.jt-summary-icon.applied {
+  background: #FFFBEB;
+  color: #D97706;
+}
+
+.jt-summary-icon.interview {
+  background: #F0F9FF;
+  color: #0284C7;
+}
+
+.jt-summary-icon.offer {
+  background: #ECFDF5;
+  color: #059669;
+}
+
+.jt-summary-icon.rejected {
+  background: #FEF2F2;
+  color: #DC2626;
+}
+
+/* -------------------------------------------------------------------
+   3. SEARCH, FILTERS & VIEW TOGGLE BAR
+   ------------------------------------------------------------------- */
+.jt-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+.jt-controls-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex: 1;
+}
+
+.jt-search-box {
+  position: relative;
+  min-width: 240px;
+  flex: 1;
+  max-width: 380px;
+}
+
+.jt-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94A3B8;
+  pointer-events: none;
+}
+
+.jt-search-input {
+  width: 100%;
+  padding: 9px 34px 9px 36px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: #0F172A;
+  outline: none;
+  transition: all 150ms ease;
+}
+
+.jt-search-input:focus {
+  background: #FFFFFF;
+  border-color: #6366F1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.jt-search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.jt-search-clear:hover {
+  color: #0F172A;
+  background: #E2E8F0;
+}
+
+.jt-filters-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.jt-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.jt-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 9px 32px 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  outline: none;
+  transition: all 150ms ease;
+  min-width: 130px;
+}
+
+.jt-select:focus {
+  background: #FFFFFF;
+  border-color: #6366F1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.jt-select-chevron {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  color: #64748B;
+}
+
+.jt-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  color: #64748B;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.jt-reset-btn:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+/* Segmented View Toggle */
+.jt-view-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.jt-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.jt-toggle-btn:hover {
+  color: #0F172A;
+}
+
+.jt-toggle-btn.active {
+  background: #FFFFFF;
+  color: #4F46E5;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+/* -------------------------------------------------------------------
+   4. DATA TABLE VIEW
+   ------------------------------------------------------------------- */
+.jt-table-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+}
+
+.jt-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.jt-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13.5px;
+}
+
+.jt-table thead {
+  background: #F8FAFC;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.jt-table th {
+  padding: 13px 18px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+}
+
+.jt-table tbody tr {
+  border-bottom: 1px solid #F1F5F9;
+  transition: background-color 150ms ease;
+}
+
+.jt-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.jt-table tbody tr:hover {
+  background-color: #FAFAFD;
+}
+
+.jt-table td {
+  padding: 14px 18px;
+  color: #1E293B;
+  vertical-align: middle;
+}
+
+.jt-company-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.jt-company-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+  border: 1px solid #C7D2FE;
+  color: #4338CA;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.jt-company-meta strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  display: block;
+}
+
+.jt-job-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  color: #6366F1;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 2px;
+}
+
+.jt-job-link:hover {
+  text-decoration: underline;
+  color: #4338CA;
+}
+
+.jt-role-text {
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.jt-type-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  white-space: nowrap;
+}
+
+.jt-salary-text {
+  font-weight: 700;
+  color: #0F172A;
+  white-space: nowrap;
+}
+
+/* Inline Status Dropdown Select */
+.jt-status-select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.jt-status-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 5px 24px 5px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid transparent;
+  transition: all 150ms ease;
+}
+
+.jt-status-select.applied {
+  background: #FFFBEB;
+  border-color: #FDE68A;
+  color: #B45309;
+}
+
+.jt-status-select.interview {
+  background: #F0F9FF;
+  border-color: #BAE6FD;
+  color: #0369A1;
+}
+
+.jt-status-select.offered {
+  background: #ECFDF5;
+  border-color: #A7F3D0;
+  color: #047857;
+}
+
+.jt-status-select.rejected {
+  background: #FEF2F2;
+  border-color: #FECACA;
+  color: #B91C1C;
+}
+
+.jt-status-select.saved {
+  background: #F5F3FF;
+  border-color: #DDD6FE;
+  color: #6D28D9;
+}
+
+.jt-status-chevron {
+  position: absolute;
+  right: 8px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.jt-interview-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  border-radius: 6px;
+  color: #0284C7;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.jt-actions-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.jt-action-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #64748B;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.jt-action-icon-btn.view:hover {
+  background: #EEF2FF;
+  color: #4F46E5;
+  border-color: #C7D2FE;
+}
+
+.jt-action-icon-btn.edit:hover {
+  background: #F0F9FF;
+  color: #0284C7;
+  border-color: #BAE6FD;
+}
+
+.jt-action-icon-btn.delete:hover {
+  background: #FEF2F2;
+  color: #DC2626;
+  border-color: #FECACA;
+}
+
+/* -------------------------------------------------------------------
+   5. KANBAN / BOARD VIEW
+   ------------------------------------------------------------------- */
+.jt-kanban-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.jt-kanban-col {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  overflow: hidden;
+}
+
+.jt-kanban-col-header {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E2E8F0;
+  background: #FFFFFF;
+}
+
+.jt-kanban-col-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.jt-status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.jt-status-dot.applied { background: #F59E0B; }
+.jt-status-dot.interview { background: #0EA5E9; }
+.jt-status-dot.offered { background: #10B981; }
+.jt-status-dot.rejected { background: #EF4444; }
+.jt-status-dot.saved { background: #8B5CF6; }
+
+.jt-kanban-col-title h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.jt-col-count-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.jt-kanban-cards-list {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.jt-kanban-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all 180ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jt-kanban-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px -2px rgba(15, 23, 42, 0.08);
+  border-color: #CBD5E1;
+}
+
+.jt-kanban-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.jt-kanban-company {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.jt-kanban-role {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.jt-kanban-meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.jt-kanban-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  font-size: 11.5px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.jt-kanban-interview-notice {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  border-radius: 6px;
+  font-size: 11.5px;
+  color: #0284C7;
+  font-weight: 600;
+}
+
+.jt-kanban-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid #F1F5F9;
+  font-size: 11.5px;
+  color: #94A3B8;
+  gap: 8px;
+}
+
+.jt-kanban-status-select {
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid #E2E8F0;
+  background: #F8FAFC;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  outline: none;
+}
+
+.jt-kanban-empty-col {
+  padding: 24px 12px;
+  text-align: center;
+  color: #94A3B8;
+  font-size: 13px;
+  border: 1px dashed #CBD5E1;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* -------------------------------------------------------------------
+   6. MODALS & FORMS REDESIGN
+   ------------------------------------------------------------------- */
+.jt-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 150ms ease-out;
+}
+
+.jt-modal-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.2);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: scaleUp 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.jt-modal-header {
+  padding: 20px 26px;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+}
+
+.jt-modal-header-left h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.3px;
+}
+
+.jt-modal-header-left p {
+  font-size: 13px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.jt-modal-close-btn {
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 150ms ease;
+}
+
+.jt-modal-close-btn:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+}
+
+.jt-modal-body {
+  padding: 24px 26px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.jt-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.jt-section-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #6366F1;
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 6px;
+}
+
+.jt-form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.jt-form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+.jt-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.jt-field-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.jt-field-group label span.req {
+  color: #EF4444;
+  margin-left: 2px;
+}
+
+.jt-input,
+.jt-form-select,
+.jt-textarea {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  padding: 9.5px 12px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: #0F172A;
+  outline: none;
+  transition: all 150ms ease;
+}
+
+.jt-input:focus,
+.jt-form-select:focus,
+.jt-textarea:focus {
+  border-color: #6366F1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.jt-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.jt-modal-footer {
+  padding: 16px 26px;
+  border-top: 1px solid #E2E8F0;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.jt-btn-secondary {
+  padding: 9px 18px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.jt-btn-secondary:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+}
+
+.jt-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9.5px 20px;
+  background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+  color: #FFFFFF;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
+  transition: all 150ms ease;
+}
+
+.jt-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+}
+
+.jt-btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* -------------------------------------------------------------------
+   7. DETAILS MODAL
+   ------------------------------------------------------------------- */
+.jt-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.jt-detail-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.jt-detail-card-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.jt-detail-card-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.jt-detail-box-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.jt-detail-box-content {
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.jt-detail-box-card.notes {
+  background: #FFFBEB;
+  border-color: #FDE68A;
+}
+
+.jt-detail-box-card.notes .jt-detail-card-label {
+  color: #B45309;
+}
+
+.jt-detail-box-card.notes .jt-detail-box-content {
+  color: #78350F;
+}
+
+/* -------------------------------------------------------------------
+   8. DELETE CONFIRMATION MODAL
+   ------------------------------------------------------------------- */
+.jt-delete-modal-card {
+  background: #FFFFFF;
+  border: 1px solid #FECACA;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.2);
+  width: 100%;
+  max-width: 440px;
+  padding: 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  animation: scaleUp 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.jt-delete-icon-wrap {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #FEE2E2;
+  color: #DC2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jt-delete-modal-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.jt-delete-modal-card p {
+  font-size: 13.5px;
+  color: #64748B;
+  line-height: 1.5;
+}
+
+.jt-delete-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.jt-delete-actions button {
+  flex: 1;
+}
+
+.jt-btn-danger {
+  padding: 9.5px 18px;
+  background: #DC2626;
+  color: #FFFFFF;
+  border: 1px solid #DC2626;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.jt-btn-danger:hover {
+  background: #B91C1C;
+}
+
+/* -------------------------------------------------------------------
+   9. EMPTY, LOADING & ERROR STATES
+   ------------------------------------------------------------------- */
+.jt-empty-card {
+  background: #FFFFFF;
+  border: 1px dashed #CBD5E1;
+  border-radius: 16px;
+  padding: 56px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.jt-empty-icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: #EEF2FF;
+  color: #4F46E5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.jt-empty-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.jt-empty-card p {
+  font-size: 14px;
+  color: #64748B;
+  max-width: 420px;
+}
+
+.jt-error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 10px;
+  color: #991B1B;
+  font-size: 13.5px;
+}
+
+.jt-error-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.jt-retry-btn {
+  background: #FFFFFF;
+  border: 1px solid #FECACA;
+  color: #991B1B;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.jt-retry-btn:hover {
+  background: #FEE2E2;
+}
+
+/* Skeleton Loading */
+.jt-skeleton-metrics {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.jt-skeleton-card {
+  height: 84px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #E2E8F0 25%, #F1F5F9 50%, #E2E8F0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.jt-skeleton-table {
+  height: 380px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #E2E8F0 25%, #F1F5F9 50%, #E2E8F0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* -------------------------------------------------------------------
+   10. RESPONSIVE MEDIA QUERIES
+   ------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .jt-summary-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .jt-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jt-controls-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .jt-controls-left {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .jt-search-box {
+    max-width: 100%;
+  }
+
+  .jt-filters-group {
+    width: 100%;
+  }
+
+  .jt-select-wrapper {
+    flex: 1;
+  }
+
+  .jt-select {
+    width: 100%;
+  }
+
+  .jt-view-toggle {
+    align-self: flex-start;
+  }
+
+  .jt-form-grid-2,
+  .jt-form-grid-3,
+  .jt-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .jt-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
